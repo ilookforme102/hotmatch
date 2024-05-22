@@ -1,0 +1,130 @@
+/* Example styles for the carousel */
+.slider-container {
+    overflow: hidden; 
+    width: 100%;
+    position: relative
+}
+
+.shang-carousel-set {
+    display: flex;
+    width: 100%;
+    /* overflow-x: scroll; */
+    justify-content: space-between;
+    gap:2%;
+    transition: transform 1s cubic-bezier(0.4, 0, 1, 1); /* Use 'ease-out' for a smoother end */
+    will-change: transform; /
+    overflow: hidden;
+}
+
+.shang-match-container {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    border-radius:10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #1b1e2d;
+    text-align:center;
+}
+
+.shang-match-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.shang-match-header p,.shang-match-odds-data p,.shang-match-team-name-container p {
+    font-weight: bold;
+    color:#fff;
+}
+.shang-match-odds-block-container {
+    justify-content: space-around;
+    display:flex;
+}
+.shang-match-column-item {
+    width: 33%;
+}
+.shang-match-team-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    align-items: center;
+}
+.shang-match-team-logo-container {
+    width: 3rem;
+    height: 3rem;
+}
+.shang-match-team-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.shang-match-odds-details {
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    align-items: center;
+    justify-content: space-between;
+}
+.shang-match-odds-data p {
+    margin:0px;
+}
+.shang-button {
+    position: absolute;
+    bottom: 50%;
+    width: 2rem;
+    height: 2rem;
+    transform: translate(0%, 50%);
+    border-radius: 2rem;
+    background-color: grey;
+}
+.shang-button:after{
+    content: "";
+    background: url(https://bongdalive.info/wp-content/plugins/5goal-live//images/arrow-right.svg) no-repeat center center;
+    background-size: 6px 15px;
+    top: 0;
+    left: 0; 
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    filter: contrast(1) invert(1);
+    z-index: 99;
+    background-color: #b7b7b7;
+    border-radius: 50%;
+    display: block;
+    opacity: 0.8;
+}
+.shang-prev {
+    left: 0;
+}
+.shang-next {
+    right:0;
+}
+.shang-button svg {
+    position: absolute;
+    /* opacity: 0.6; */
+    top: 0;
+    left: 0; 
+    width: 2rem;
+    height: 2rem;
+    /* visibility: visible; */
+    /* border: 1px solid #cdbbbb; */
+    border-radius: 2rem;
+
+}
+.shang-button svg:hover  {
+    --tw-bg-opacity: 1;
+    background-color: rgb(237 120 51 / var(--tw-bg-opacity));
+    opacity: 1;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
+}
+@media (min-width: 900px) {
+    .shang-match-container {
+        flex: 0 0 50%;
+        display: flex;
+        flex-direction: column; /* Aligns children vertically */
+        border:10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #1b1e2d;
+        text-align:center;
+    }
+
+}
