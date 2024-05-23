@@ -148,10 +148,17 @@ function shangsieuthu_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'shangsieuthu_scripts' );
-/*
-Implement Shortcode for todayhotmatch
 
-*/
+// Implement Shortcode for todayhotmatch
+//////////////////////////Swiper enqueue////////////////////
+function enqueue_custom_swiper_scripts() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.1.3', true);
+    wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.1.3',true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_swiper_scripts');
+
+
 ###################################################################################################
 function enqueue_custom_stylesheets() {
     // Enqueue the custom stylesheet

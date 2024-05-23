@@ -2,18 +2,23 @@
 .slider-container {
     overflow: hidden; 
     width: 100%;
-    position: relative
+    position: relative;
+    left: 0;
+}
+.shang-swiper-container {
+    transition: transform 1s cubic-bezier(0.4, 0, 1, 1); /* Use 'ease-out' for a smoother end */
+    will-change: transform; 
 }
 
 .shang-carousel-set {
     display: flex;
     width: 100%;
     /* overflow-x: scroll; */
-    justify-content: space-between;
+    justify-content: space-around;
     gap:2%;
-    transition: transform 1s cubic-bezier(0.4, 0, 1, 1); /* Use 'ease-out' for a smoother end */
-    will-change: transform; /
-    overflow: hidden;
+    /* transition: transform 1s cubic-bezier(0.4, 0, 1, 1);
+    will-change: transform;  */
+    /* overflow: hidden; */
 }
 
 .shang-match-container {
@@ -73,9 +78,14 @@
     height: 2rem;
     transform: translate(0%, 50%);
     border-radius: 2rem;
-    background-color: grey;
+    background:none;
+    color: transparent;
 }
-.shang-button:after{
+.shang-button:hover,.shang-button:focus{
+    background:none;
+    color: transparent;
+}
+.shang-button::after{
     content: "";
     background: url(https://bongdalive.info/wp-content/plugins/5goal-live//images/arrow-right.svg) no-repeat center center;
     background-size: 6px 15px;
@@ -89,7 +99,13 @@
     background-color: #b7b7b7;
     border-radius: 50%;
     display: block;
+    opacity: 0.3;
+    visibility: visible;
+}
+.shang-button:hover:after{
+    background-color: #edb00e;
     opacity: 0.8;
+    transition: all ease-in-out 1s;
 }
 .shang-prev {
     left: 0;
@@ -97,24 +113,21 @@
 .shang-next {
     right:0;
 }
-.shang-button svg {
+/* .shang-button svg {
     position: absolute;
-    /* opacity: 0.6; */
     top: 0;
     left: 0; 
     width: 2rem;
     height: 2rem;
-    /* visibility: visible; */
-    /* border: 1px solid #cdbbbb; */
     border-radius: 2rem;
 
-}
-.shang-button svg:hover  {
+} */
+/* .shang-button svg:hover  {
     --tw-bg-opacity: 1;
     background-color: rgb(237 120 51 / var(--tw-bg-opacity));
     opacity: 1;
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
-}
+} */
 @media (min-width: 900px) {
     .shang-match-container {
         flex: 0 0 50%;

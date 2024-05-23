@@ -2,6 +2,7 @@
 function my_custom_shortcode() {
     $base_url = "https://api2.asiasport.com/match/getMatchListv2";
     date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $currentTime = new DateTime("now", new DateTimeZone('Asia/Ho_Chi_Minh'));
     $todayDate = date('Y-m-d');
     $params = array(
         'matchDate' => $todayDate,
@@ -40,17 +41,21 @@ function my_custom_shortcode() {
 
     ob_start();
     echo "<div class='shang-carousel-container slider-container'>";
-    echo "<div class='shang-carousel-set slider'>";
+    echo "<div class='shang-carousel-set slider swiper-wrapper'>";
     $root_url = "https://asset.asiasport.com/";
     foreach ($league_match_data as $league_data) {
         $league_name = $league_data->leagueName;
         $league_match_list = $league_data->matchList;
         
         foreach ($league_match_list as $match) {
-            echo "<div class='shang-match-container slide'>";
+            $match_time = $match->matchTime;
+            $matchTime = new DateTime("today " .$match_time, new DateTimeZone('Asia/Ho_Chi_Minh'));
+            if($matchTime >= $currentTime)  {
+            echo "<div class='shang-match-container shang-slide swiper-slide'>";
+            
             
             $match_id = $match->matchId;
-            $match_time = $match->matchTime;
+        
             $match_date = $match->matchDate;
             $match_teams = $match->opponents;
             $match_team1 = $match_teams[0];
@@ -136,6 +141,7 @@ function my_custom_shortcode() {
 
             echo "</div>"; // end of odds block container
             echo "</div>"; // end of match container
+        }
         }
     }
     echo "</div>"; // end of carousel set
